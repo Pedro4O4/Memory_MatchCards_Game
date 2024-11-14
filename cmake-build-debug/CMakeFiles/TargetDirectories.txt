@@ -1,0 +1,3 @@
+C:/Users/amh24/Memory MatchCard Game/cmake-build-debug/CMakeFiles/Memory_MatchCard_Game.dir
+C:/Users/amh24/Memory MatchCard Game/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/amh24/Memory MatchCard Game/cmake-build-debug/CMakeFiles/rebuild_cache.dir
