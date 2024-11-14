@@ -5,4 +5,13 @@
 #ifndef MEMORY_MATCHCARD_GAME_STANDARDCARD_H
 #define MEMORY_MATCHCARD_GAME_STANDARDCARD_H
 
+#include <bits/stdc++.h>
+#include "Card.h"
+using namespace std;
+class StandardCard:Card{
+
+};
+
+
+
 #endif //MEMORY_MATCHCARD_GAME_STANDARDCARD_H

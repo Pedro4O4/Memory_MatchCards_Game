@@ -4,5 +4,15 @@
 
 #ifndef MEMORY_MATCHCARD_GAME_PENALTYCARD_H
 #define MEMORY_MATCHCARD_GAME_PENALTYCARD_H
+#include <bits/stdc++.h>
+#include "Card.h"
+using namespace std;
+class PenaltyCard:Card{
 
+
+
+
+
+
+};
 #endif //MEMORY_MATCHCARD_GAME_PENALTYCARD_H

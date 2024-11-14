@@ -4,5 +4,14 @@
 
 #ifndef MEMORY_MATCHCARD_GAME_DECK_H
 #define MEMORY_MATCHCARD_GAME_DECK_H
+#include <bits/stdc++.h>
+using namespace std;
+
+class Deck{
+
+
+
+
+};
 
 #endif //MEMORY_MATCHCARD_GAME_DECK_H
