@@ -8,7 +8,14 @@
 #include "Card.h"
 using namespace std;
 class BonusCard:Card{
+private:
+    int bonusPoints;
+public:
 
+    BonusCard();
+    BonusCard(int bonusPoints);
+    ~BonusCard();
+    void display();
 
 
 

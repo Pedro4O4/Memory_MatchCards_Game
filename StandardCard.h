@@ -9,7 +9,10 @@
 #include "Card.h"
 using namespace std;
 class StandardCard:Card{
-
+public:
+    StandardCard();
+   ~StandardCard();
+    void display();
 };
 
 

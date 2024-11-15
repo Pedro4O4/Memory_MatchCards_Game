@@ -9,8 +9,13 @@
 using namespace std;
 class PenaltyCard:Card{
 
-
-
+private:
+    int penaltyPoints;
+public:
+    PenaltyCard();
+    PenaltyCard(int penaltyPoints);
+    ~PenaltyCard();
+    void display();
 
 
 

@@ -6,11 +6,16 @@
 #define MEMORY_MATCHCARD_GAME_DECK_H
 #include <bits/stdc++.h>
 using namespace std;
-
+#include "Card.h"
 class Deck{
+private:
 
+    Card* deck;
+    Card **grid;
 
-
+public:
+    Deck();
+    ~Deck();
 
 };
 

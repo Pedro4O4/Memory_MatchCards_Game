@@ -7,9 +7,21 @@
 #include <bits/stdc++.h>
 using namespace std;
 class Card{
+private:
+    int value;
+    bool isfaceUp;
+
+public:
+    Card();
+    Card(int value,bool isfaceUp);
+    ~Card();
+
+    int getValue();
+    void setValue();
+    bool isFaceUp();
 
 
-void display();
+    void display();
 
 
 };
