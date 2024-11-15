@@ -16,6 +16,8 @@ private:
 public:
     Deck();
     ~Deck();
+    void shuffle();
+    void displayGrid();
 
 };
 

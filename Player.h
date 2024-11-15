@@ -19,7 +19,6 @@ public:
     int getScore();
     void setScore();
     void displayScore();
-
 };
 
 

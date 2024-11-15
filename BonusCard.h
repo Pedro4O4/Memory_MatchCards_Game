@@ -17,9 +17,6 @@ public:
     ~BonusCard();
     void display();
 
-
-
-
 };
 
 

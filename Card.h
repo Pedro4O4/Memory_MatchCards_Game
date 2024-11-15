@@ -19,10 +19,7 @@ public:
     int getValue();
     void setValue();
     bool isFaceUp();
-
-
     void display();
-
 
 };
 #endif //MEMORY_MATCHCARD_GAME_CARD_H

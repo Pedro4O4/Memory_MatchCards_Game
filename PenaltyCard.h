@@ -16,8 +16,5 @@ public:
     PenaltyCard(int penaltyPoints);
     ~PenaltyCard();
     void display();
-
-
-
 };
 #endif //MEMORY_MATCHCARD_GAME_PENALTYCARD_H
