@@ -4,29 +4,27 @@
 
 #ifndef MEMORY_MATCHCARD_GAME_DECK_H
 #define MEMORY_MATCHCARD_GAME_DECK_H
-#include <bits/stdc++.h>
-using namespace std;
 #include "Card.h"
+#include "BonusCard.h"
+#include "PenaltyCard.h"
+#include <vector>
+#include <algorithm>
+#include <ctime>
+using namespace std;
 class Deck{
 private:
-    Card* deck;            // Dynamically allocated array of cards
-    Card* grid[4][4];      // 4x4 grid of card pointers
+    Card*** grid;    // 4x4 grid
+    Card** deck;     // Array of 16 cards
 
 public:
-    // Constructor
     Deck();
-
-    // Destructor
     ~Deck();
 
     void addCard(Card* card);
-
-    // Shuffle the deck and assign cards to the grid
     void shuffle();
-
-    // Display the current layout of the grid
     void displayGrid();
-
+    void flipCard(int row, int col, bool faceUp);
+    Card* getCard(int row, int col);
 };
 
 #endif //MEMORY_MATCHCARD_GAME_DECK_H

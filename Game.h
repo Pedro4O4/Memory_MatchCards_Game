@@ -6,15 +6,22 @@
 #define MEMORY_MATCHCARD_GAME_GAME_H
 #include "Deck.h"
 #include "Player.h"
-class Game{
+using namespace std;
+class Game {
 private:
-    Deck deck;
-    Player player1;
-    Player player2;
-    int currentTurn;
-    bool gameOver;
+    Deck deck;                      // The deck of cards
+    Player player1;                 // Player 1
+    Player player2;                 // Player 2
+    int currentPlayer;              // Index to track whose turn it is (1 or 2)
+
 public:
-   void initializeGame();
+    Game();                         // Default constructor
+    ~Game();                        // Destructor
+
+    void initializeGame();          // Initialize the game (setup players, shuffle deck, etc.)
+    void playTurn();                // Handle a single player's turn
+    void displayScores();           // Display current scores
+    void start();                   // Start the game loop
 };
 
 #endif //MEMORY_MATCHCARD_GAME_GAME_H
