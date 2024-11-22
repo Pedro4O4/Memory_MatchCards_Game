@@ -10,16 +10,28 @@ class Player{
 private:
     string name;
     int score;
+
 public:
+
     Player();
-    Player(string name,int score);
+
+    Player(string playerName);
+
     ~Player();
-    string getName();
-    void setName();
-    int getScore();
-    void setScore();
-    void displayScore();
+
+    void setName(string& playerName);
+    void setScore(int playerScore);
+
+
+    string getName() ;
+    int getScore() ;
+
+
+    void displayScore() ;      // Displays the player's current score
+    void addScore(int points);      // Increases the player's score by a specified number of points
+    void deductScore(int points);   // Decreases the player's score by a specified number of points
 };
+
 
 
 

@@ -13,7 +13,7 @@ private:
 public:
 
     BonusCard();
-    BonusCard(int number ,int bonusPoints);
+    BonusCard(int number ,int Points);
     ~BonusCard();
 
     void setBonusPoints(int points);
