@@ -9,16 +9,21 @@
 using namespace std;
 class BonusCard:Card{
 private:
-    int bonusPoints;
+    int Points;
 public:
 
     BonusCard();
-    BonusCard(int bonusPoints);
+    BonusCard(int number ,int bonusPoints);
     ~BonusCard();
-    void display();
+
+    void setBonusPoints(int points);
+
+    int getBonusPoints();
+
+    // Overridden display method
+    void display() ;
+
 
 };
-
-
 
 #endif //MEMORY_MATCHCARD_GAME_BONUSCARD_H

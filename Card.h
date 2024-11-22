@@ -1,6 +1,3 @@
-//
-// Created by amh24 on 14/11/2024.
-//
 
 #ifndef MEMORY_MATCHCARD_GAME_CARD_H
 #define MEMORY_MATCHCARD_GAME_CARD_H
@@ -8,17 +5,21 @@
 using namespace std;
 class Card{
 private:
-    int value;
-    bool isfaceUp;
-
+    int  number;
+    bool isFaceUp;
 public:
     Card();
-    Card(int value,bool isfaceUp);
+    Card(int value);
     ~Card();
 
-    int getValue();
-    void setValue();
-    bool isFaceUp();
+
+    void setNumber(int num);
+    void setFaceUp(bool faceUp);
+
+
+    int getNumber();
+    bool getFaceUp() ;
+
     void display();
 
 };

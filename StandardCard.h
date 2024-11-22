@@ -15,6 +15,4 @@ public:
     void display();
 };
 
-
-
 #endif //MEMORY_MATCHCARD_GAME_STANDARDCARD_H
