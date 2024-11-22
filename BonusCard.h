@@ -7,9 +7,9 @@
 #include <bits/stdc++.h>
 #include "Card.h"
 using namespace std;
-class BonusCard:Card{
+class BonusCard: public  Card{
 private:
-    int Points;
+    int bonusPoints;
 public:
 
     BonusCard();
