@@ -13,8 +13,8 @@
 using namespace std;
 class Deck{
 private:
-    Card*** grid;    // 4x4 grid
-    Card** deck;     // Array of 16 cards
+    Card*** grid;
+    Card** deck;
 
 public:
     Deck();

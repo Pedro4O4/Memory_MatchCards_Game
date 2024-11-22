@@ -116,23 +116,115 @@ Card* Deck::getCard(int row, int col) {
     }
     return nullptr;
 }
+///////////////////////////////////////////////////
 
+// Default Constructor
+Game::Game() : player1("Player 1"), player2("Player 2"), currentPlayer(1) {}
 
+// Destructor
+Game::~Game() {}
 
-// Main Function
-int main() {
-    Deck deck;
+// Initialize the game
+void Game::initializeGame() {
+    std::cout << "Welcome to the 2D Card Matching Game!" << std::endl;
+
+    // Shuffle the deck
+    std::cout << "Shuffling cards..." << std::endl;
     deck.shuffle();
 
-    cout << "Shuffled Grid:" << endl;
+    // Display initial grid
+    std::cout << "\nInitial Card Grid:" << std::endl;
+    deck.displayGrid();
+}
+
+// Handle a single player's turn
+void Game::playTurn() {
+    Player& current = (currentPlayer == 1) ? player1 : player2;
+
+    std::cout << "\n" << current.getName() << "'s turn!" << std::endl;
+
+    // Input for first card
+    int row1, col1;
+    std::cout << "Enter row and column for the first card (e.g., 0 1): ";
+    std::cin >> row1 >> col1;
+
+    // Flip the first card
+    deck.flipCard(row1, col1, true);
     deck.displayGrid();
 
-    // Flip two cards in the grid
-    deck.flipCard(0, 0, true);
-    deck.flipCard(0, 1, true);
+    // Input for second card
+    int row2, col2;
+    std::cout << "Enter row and column for the second card (e.g., 1 2): ";
+    std::cin >> row2 >> col2;
 
-    cout << "\nUpdated Grid:" << endl;
+    // Flip the second card
+    deck.flipCard(row2, col2, true);
     deck.displayGrid();
+
+    // Check if the two cards match
+    Card* card1 = deck.getCard(row1, col1);
+    Card* card2 = deck.getCard(row2, col2);
+
+    if (card1 && card2 && card1->getNumber() == card2->getNumber()) {
+        std::cout << "It's a match!" << std::endl;
+
+        // Handle special cards
+        if (auto* bonusCard = dynamic_cast<BonusCard*>(card1)) {
+            current.addScore(bonusCard->getBonusPoints());
+            std::cout << "Bonus! +" << bonusCard->getBonusPoints() << " points." << std::endl;
+        } else if (auto* penaltyCard = dynamic_cast<PenaltyCard*>(card1)) {
+            current.deductScore(penaltyCard->getPenaltyPoints());
+            std::cout << "Penalty! -" << penaltyCard->getPenaltyPoints() << " points." << std::endl;
+        }
+
+        current.addScore(10); // Add points for a successful match
+    } else {
+        std::cout << "Not a match!" << std::endl;
+
+        // Flip cards back face-down
+        deck.flipCard(row1, col1, false);
+        deck.flipCard(row2, col2, false);
+    }
+
+    // Switch to the other player
+    currentPlayer = (currentPlayer == 1) ? 2 : 1;
+}
+
+// Display the current scores
+void Game::displayScores() {
+    player1.displayScore();
+    player2.displayScore();
+}
+
+// Start the game loop
+void Game::start() {
+    initializeGame();
+
+    // Game loop
+    int turns = 0;
+    while (turns < 8) { // Max 8 turns since there are 16 cards
+        playTurn();
+        displayScores();
+        turns++;
+    }
+
+    // Determine the winner
+    std::cout << "\nGame Over!" << std::endl;
+    if (player1.getScore() > player2.getScore()) {
+        std::cout << player1.getName() << " wins!" << std::endl;
+    } else if (player1.getScore() < player2.getScore()) {
+        std::cout << player2.getName() << " wins!" << std::endl;
+    } else {
+        std::cout << "It's a tie!" << std::endl;
+    }
+}
+
+
+
+int main() {
+
+    Game game;
+    game.start();
 
     return 0;
 }

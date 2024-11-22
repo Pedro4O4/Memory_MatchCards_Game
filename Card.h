@@ -10,7 +10,7 @@ private:
 public:
     Card();
     Card(int value);
-    ~Card();
+   virtual ~Card();
 
 
     void setNumber(int num);
