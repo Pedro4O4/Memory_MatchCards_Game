@@ -9,14 +9,22 @@ using namespace std;
 #include "Card.h"
 class Deck{
 private:
-
-    Card* deck;
-    Card **grid;
+    Card* deck;            // Dynamically allocated array of cards
+    Card* grid[4][4];      // 4x4 grid of card pointers
 
 public:
+    // Constructor
     Deck();
+
+    // Destructor
     ~Deck();
+
+    void addCard(Card* card);
+
+    // Shuffle the deck and assign cards to the grid
     void shuffle();
+
+    // Display the current layout of the grid
     void displayGrid();
 
 };

@@ -9,6 +9,7 @@ int speedUp = [] {
 #include "BonusCard.h"
 #include "PenaltyCard.h"
 #include "Player.h"
+#include "Deck.h"
 Card::Card() : number(0), isFaceUp(false) {}
 
 Card::Card(int num) : number(num), isFaceUp(false) {}
@@ -127,7 +128,81 @@ void Player::addScore(int points) {
 void Player::deductScore(int points) {
     score -= points;
 }
+////////////////////////////////////////////////
+// Constructor
+Deck::Deck() {
+    // Allocate memory for the deck (16 cards)
+    deck = new Card[16];
 
+    // Initialize grid pointers to nullptr
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            grid[i][j] = nullptr;
+        }
+    }
+
+    // Populate the deck with cards
+    for (int i = 0; i < 16; i++) {
+        deck[i] = Card(i % 8 + 1); // Cards 1-8 appear twice
+    }
+}
+
+// Destructor
+Deck::~Deck() {
+    delete[] deck;
+
+    // Clean up the grid
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (grid[i][j] != nullptr) {
+                grid[i][j] = nullptr; // Grid only points to existing cards
+            }
+        }
+    }
+}
+
+// Add a card to the grid
+void Deck::addCard(Card* card) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            if (grid[i][j] == nullptr) {
+                grid[i][j] = card;
+                return;
+            }
+        }
+    }
+}
+
+// Shuffle the deck and assign cards to the grid
+void Deck::shuffle() {
+    srand(static_cast<unsigned>(time(0)));
+
+    // Generate shuffled indices for the deck
+    vector<int> indices(16);
+    for (int i = 0; i < 16; i++) {
+        indices[i] = i;
+    }
+    random_shuffle(indices.begin(), indices.end());
+
+    // Assign shuffled cards to the grid
+    int index = 0;
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            grid[i][j] = &deck[indices[index++]];
+        }
+    }
+}
+
+// Display the current layout of the grid
+void Deck::displayGrid() {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            grid[i][j]->display(); // Display card details
+            cout << " ";
+        }
+        cout << endl;
+    }
+}
 
 
 
@@ -181,6 +256,16 @@ int main() {
     // Deduct points from the player's score
     player1.deductScore(3);
     player1.displayScore(); // Output: Ahmed's Score: 7
+    cout<<endl;
+    //////////////////////////////
+    Deck deck;
+
+    // Shuffle the deck
+    deck.shuffle();
+
+    // Display the grid
+    cout << "Shuffled Grid:" << endl;
+    deck.displayGrid();
 
 
     return 0;
