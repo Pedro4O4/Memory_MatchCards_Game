@@ -15,21 +15,21 @@ public:
 
     Player();
 
-    Player(string playerName);
+    Player(string Pname, int s);
 
     ~Player();
 
-    void setName(string& playerName);
-    void setScore(int playerScore);
+    void setName(string playerName);
+    void setScore(int s);
 
 
     string getName() ;
     int getScore() ;
 
 
-    void displayScore() ;      // Displays the player's current score
-    void addScore(int points);      // Increases the player's score by a specified number of points
-    void deductScore(int points);   // Decreases the player's score by a specified number of points
+    void displayScore() ;
+    void addScore(int points);
+    void deduceScore(int points);
 };
 
 

@@ -9,20 +9,23 @@ using namespace std;
 class PenaltyCard:public Card{
 
 private:
-    int penaltyPoints;
+    int  penaltyPoints ;
 public:
     PenaltyCard();
-
-    PenaltyCard( int number ,int Points);
+    PenaltyCard( int value , bool isFaceUp ,int penaltyPoints);
 
     ~PenaltyCard();
 
     void setPenaltyPoints(int points);
-
     int getPenaltyPoints();
 
-    void applyPenalty(Player& player);
+   virtual  void display();
 
-    void display();
+
+    int getPenaltyPoints() const { return penaltyPoints; }
+
+
+
+
 };
-#endif //MEMORY_MATCHCARD_GAME_PENALTYCARD_H
+#endif

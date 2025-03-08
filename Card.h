@@ -1,26 +1,29 @@
-
-#ifndef MEMORY_MATCHCARD_GAME_CARD_H
-#define MEMORY_MATCHCARD_GAME_CARD_H
-#include <bits/stdc++.h>
-using namespace std;
-class Card{
-private:
-    int  number;
-    bool isFaceUp;
+#ifndef CARD_H
+#define CARD_H
+class Card {
 public:
+    int value;
+    bool isFaceUp;
+
     Card();
-    Card(int value);
-   virtual ~Card();
+    Card(int value, bool isFaceUp);
+    virtual ~Card();
+    void setValue(int v);
+    void setIsfaceUp(bool f);
+    int getValue();
+    bool getIsfaceUp();
+    virtual void display();
+
+    void reveal();
+    void hide();
+    bool getIsFaceUp();
+    int getValue()const ;
 
 
-    void setNumber(int num);
-    void setFaceUp(bool faceUp);
+    Card &operator=(nullptr_t null);
 
-
-    int getNumber();
-    bool getFaceUp() ;
-
-    void display();
-
+    bool operator!=(nullptr_t null) const;
 };
-#endif //MEMORY_MATCHCARD_GAME_CARD_H
+
+
+#endif
